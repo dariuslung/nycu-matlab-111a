@@ -1,0 +1,36 @@
+classdef Vec3
+    properties
+        x = 0;
+        y = 0;
+        z = 0;
+    end
+    methods
+        function obj = Vec3(x, y, z)
+            if nargin == 0
+            elseif nargin == 3 && isscalar(x) && isscalar(y) && isscalar(z)
+                obj.x = x;
+                obj.y = y;
+                obj.z = z;
+            end
+        end
+        function obj = plus(a, b)
+            obj.x = a.x + b.x;
+            obj.y = a.y + b.y;
+            obj.z = a.z + b.z;
+        end
+        function obj = minus(a, b)
+            obj.x = a.x - b.x;
+            obj.y = a.y - b.y;
+            obj.z = a.z - b.z;
+        end
+        function disp(a)
+            fprintf("(%d %d %d)\n", a.x, a.y, a.z);
+        end
+        function out = inner_prod(a, b)
+            out = (a.x * b.x) + (a.y * b.y) + (a.z * b.z);
+        end
+        function out = norm(a)
+            out = sqrt(a.x^2 + a.y^2 + a.z^2);
+        end
+    end
+end

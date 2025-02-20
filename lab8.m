@@ -1,0 +1,10 @@
+d = Vec3;
+a = Vec3(4, 5, 6);
+b = Vec3(1, 2, 3);
+disp(d);
+disp(a);
+disp(b);
+disp(a.inner_prod(b));
+disp(a.norm());
+disp(a+b);
+disp(a-b);

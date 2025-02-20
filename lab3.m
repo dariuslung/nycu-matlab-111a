@@ -1,0 +1,41 @@
+xi = -10:2:10;
+yi = -.03*xi.^2 + .1*xi + 2 + 1*(rand(1,length(xi))-.5);
+x0 = ones(length(xi),1);
+x1 = [x0 xi'];
+x2 = [x0 xi' xi'.^2];
+x3 = [x0 xi' xi'.^2 xi'.^3];
+textx = 0;
+texty = -1;
+
+subplot(1,3,1);
+c1 = x1\yi';
+approx1 = x1*c1;
+hold on;
+plot(xi, approx1, 'b');
+plot([xi; xi], [yi; approx1'], 'r');
+title('Polynomial deg = 1');
+rms1 = sqrt(mean((yi - approx1').^2));
+str1 = sprintf('rms = %0.4f', rms1);
+text(textx, texty, str1);
+
+subplot(1,3,2);
+c2 = x2\yi';
+approx2 = x2*c2;
+hold on;
+plot(xi, approx2, 'b');
+plot([xi; xi], [yi; approx2'], 'r');
+title('Polynomial deg = 2');
+rms2 = sqrt(mean((yi - approx2').^2));
+str2 = sprintf('rms = %0.4f', rms2);
+text(textx, texty, str2);
+
+subplot(1,3,3);
+c3 = x3\yi';
+approx3 = x3*c3;
+hold on;
+plot(xi, approx3, 'b');
+plot([xi; xi], [yi; approx3'], 'r');
+title('Polynomial deg = 3');
+rms3 = sqrt(mean((yi - approx3').^2));
+str3 = sprintf('rms = %0.4f', rms3);
+text(textx, texty, str3);
