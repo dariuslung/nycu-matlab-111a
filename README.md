@@ -1,2 +1,2 @@
-# nycu-matlab-111a
-NYCU MATLAB 111上
+# NYCU MATLAB 111上
+Lab, Homework, Final Exam
